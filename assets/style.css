@@ -1,0 +1,60 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+    padding: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #fe9d53;
+    color: black;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;     
+}
+
+.container {
+    width: 600px;
+    margin: 0 auto;
+    border: 3px solid #ccc;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.bouton {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #4ca7af;
+    color: white;
+    border: 2px solid #2c6469;
+    border-radius: 5px;
+    
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.bouton:hover {
+    background-color: #6845a0;
+}
