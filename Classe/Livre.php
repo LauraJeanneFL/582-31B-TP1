@@ -20,7 +20,6 @@ class Livre
         $sql = "INSERT INTO livre (titre, annee_publication, id_auteur, id_genre, quantite_disponible) 
                 VALUES (:titre, :annee_publication, :id_auteur, :id_genre, :quantite_disponible)";
         $stmt = $this->pdo->prepare($sql);
-
         $stmt->bindValue(':titre', $titre);
         $stmt->bindValue(':annee_publication', $annee_publication);
         $stmt->bindValue(':id_auteur', $id_auteur);
@@ -41,7 +40,6 @@ class Livre
         $stmt->bindValue(':id_auteur', $id_auteur);
         $stmt->bindValue(':id_genre', $id_genre);
         $stmt->bindValue(':quantite_disponible', $quantite_disponible);
-        $stmt->execute();
        return $stmt->execute();
     }
 

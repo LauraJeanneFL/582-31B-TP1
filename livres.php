@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once 'db_connexion.php';
 require_once 'Classe/Livre.php';
 require_once 'Classe/Auteur.php';
@@ -55,7 +59,6 @@ $livres = $livre->getLivres();
     <form action="livres.php" method="post">
         <input type="text" name="titre" placeholder="Titre" required>
         <input type="number" name="annee_publication" placeholder="Année de publication" required>
-
         <label for="id_auteur">Auteur :</label>
         <select name="id_auteur" required>
             <?php
@@ -65,8 +68,6 @@ $livres = $livre->getLivres();
             }
             ?>
         </select>
-        
-        <!-- Liste des genres -->
         <label for="id_genre">Genre :</label>
         <select name="id_genre">
             <?php
@@ -76,12 +77,9 @@ $livres = $livre->getLivres();
             }
             ?>
         </select>
-        
         <input type="number" name="quantite_disponible" placeholder="Quantité disponible">
-        <button type="submit" name="ajouter">Ajouter</button>
+        <button class="bouton" type="submit" name="ajouter">Ajouter</button>
     </form>
-
-
     <h1>Liste des livres</h1>
     <table>
         <tr>
@@ -93,7 +91,7 @@ $livres = $livre->getLivres();
             <th>Quantité disponible</th>
             <th>Actions</th>
         </tr>
-            <?php foreach ($livres as $l):?>
+        <?php foreach ($livres as $l):?>
             <tr>
                  <td><?php echo $l['id_livre']; ?></td>
                 <td><?php echo $l['titre'];?></td>
@@ -102,13 +100,41 @@ $livres = $livre->getLivres();
                 <td><?php echo $l['nom_genre']; ?></td>
                 <td><?php echo $l['quantite_disponible'];?></td>
                 <td>
-                    <h1>Modifier un livre</h1>
-                   <form action="livres.php" method="post">
+                    <h4>Modifier un livre</h4>
+                    <form action="livres.php" method="post">
                         <input type="hidden" name="id_livre" value="<?php echo $l['id_livre']; ?>">
-                        <button type="submit" name="modifier">Modifier</button>
+                        
+                        <label for="titre">Titre :</label>
+                        <input type="text" name="titre" value="<?php echo $l['titre']; ?>" required>
+                        
+                        <label for="annee_publication">Année de publication :</label>
+                        <input type="number" name="annee_publication" value="<?php echo $l['annee_publication']; ?>" required>
+                        
+                        <label for="id_auteur">Auteur :</label>
+                        <select name="id_auteur" required>
+                            <?php
+                            $auteurs = $auteur->getAuteurs();
+                            foreach ($auteurs as $a) {
+                                $selected = $a['id_auteur'] == $l['id_auteur'] ? 'selected' : '';
+                                echo "<option value='{$a['id_auteur']}' $selected>{$a['prenom']} {$a['nom']}</option>";
+                            }
+                            ?>
+                        </select>
+                        <label for="id_genre">Genre :</label>
+                        <select name="id_genre" required>
+                            <?php
+                            $genres = $genre->getGenres();
+                            foreach ($genres as $g) {
+                                $selected = $g['id_genre'] == $l['id_genre'] ? 'selected' : '';
+                                echo "<option value='{$g['id_genre']}' $selected>{$g['nom_genre']}</option>";
+                            }
+                            ?>
+                        </select>
+                        <label for="quantite_disponible">Quantité disponible :</label>
+                        <input type="number" name="quantite_disponible" value="<?php echo $l['quantite_disponible']; ?>" required>
+                        <button type="submit" name="modifier">Confirmer les modifications</button>`
                     </form>
-
-                    <h1>Supprimer un livre</h1>
+                    <h4>Supprimer ce livre</h4>
                     <form action="livres.php" method="post">
                         <input type="hidden" name="id_livre" value="<?php echo $l['id_livre']; ?>">
                         <button type="submit" name="supprimer">Supprimer</button>

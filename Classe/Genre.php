@@ -47,6 +47,4 @@ class Genre {
         $stmt->bindValue(':id_genre', $id_genre);
         return $stmt->execute();
     }
-
-
 }

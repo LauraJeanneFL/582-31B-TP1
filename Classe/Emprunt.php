@@ -29,28 +29,29 @@ class Emprunt {
 
     //getters
     public function ajouterEmprunt($id_livre, $nom_emprunteur, $date_emprunt, $date_retour = null) {
-        $sql = "INSERT INTO emprunt (id_livre, nom_emprunteur, date_emprunt, date_retour) VALUES (:id_livre, :nom_emprunteur, :date_emprunt, :date_retour?)";
+        $sql = "INSERT INTO emprunt (id_livre, nom_emprunteur, date_emprunt, date_retour) VALUES (:id_livre, :nom_emprunteur, :date_emprunt, :date_retour)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id_livre', $id_livre);
         $stmt->bindValue(':nom_emprunteur', $nom_emprunteur);
         $stmt->bindValue(':date_emprunt', $date_emprunt);
         $stmt->bindValue(':date_retour', $date_retour);
-        return $stmt->execute([$id_livre, $nom_emprunteur, $date_emprunt, $date_retour]);
+
+        return $stmt->execute();
     }
 
     public function modifierEmprunt($id_emprunt, $date_retour) {
-        $sql = "UPDATE emprunt SET date_retour = ? WHERE id_emprunt = :id_emprunt";
+        $sql = "UPDATE emprunt SET date_retour = :date_retour WHERE id_emprunt = :id_emprunt";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':date_retour', $date_retour);
         $stmt->bindValue(':id_emprunt', $id_emprunt);
-        return $stmt->execute([$date_retour, $id_emprunt]);
+        return $stmt->execute();
     }
 
     public function supprimerEmprunt($id_emprunt) {
         $sql = "DELETE FROM emprunt WHERE id_emprunt = :id_emprunt";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id_emprunt', $id_emprunt);
-        return $stmt->execute([$id_emprunt]);
+        return $stmt->execute();
     }
     
     public function getEmprunts() {

@@ -1,4 +1,9 @@
 <?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 require_once 'db_connexion.php';
 require_once 'Classe/Genre.php';
 
@@ -33,6 +38,7 @@ $genres = $genre->getGenres();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des genres</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <h1>Ajouter un genre</h1>
@@ -53,16 +59,16 @@ $genres = $genre->getGenres();
                 <td><?php echo $g['id_genre'];?></td>
                 <td><?php echo $g['nom_genre'];?></td>
                 <td>
-
-                    <h1>Modifier un genre</h1>
+                    <h4>Modifier un genre</h4>
                     <form action="genres.php" method="post">
-                        <input type="hidden" name="id_genre" value="<?php echo $genre['id_genre'];?>">
+                        <input type="hidden" name="id_genre" value="<?php echo $g['id_genre']; ?>">
+                        <input type="text" name="nom_genre" value="<?php echo $g['nom_genre']; ?>" required>
                         <button type="submit" name="modifier">Modifier</button>
                     </form>
 
-                    <h1>Supprimer un genre</h1>
+                    <h4>Supprimer un genre</h4>
                     <form action="genres.php" method="post">
-                        <input type="hidden" name="id_genre" value="<?php echo $genre['id_genre'];?>">
+                        <input type="hidden" name="id_genre" value="<?php echo $g['id_genre']; ?>">
                         <button type="submit" name="supprimer">Supprimer</button>
                     </form>
                 </td>

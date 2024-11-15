@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once 'db_connexion.php';
 require_once 'Classe/Auteur.php';
 
@@ -60,7 +64,7 @@ $auteurs = $auteur->getAuteurs();
                 <td><?php echo $a['nom']; ?></td>
                 <td>
                 
-                    <h1>Modifier un auteur</h1>
+                    <h4>Modifier un auteur</h4>
                     <form action="auteurs.php" method="post">
                         <input type="hidden" name="id_auteur" value="<?php echo $a['id_auteur']; ?>">
                         <input type="text" name="prenom" value="<?php echo $a['prenom']; ?>" required>
@@ -68,7 +72,7 @@ $auteurs = $auteur->getAuteurs();
                         <button type="submit" name="modifier">Modifier</button>
                     </form>
 
-                    <h1>Supprimer un auteur</h1>
+                    <h4>Supprimer un auteur</h4>
                     <form action="auteurs.php" method="post" style="display:inline;">
                         <input type="hidden" name="id_auteur" value="<?php echo $a['id_auteur']; ?>">
                         <button type="submit" name="supprimer">Supprimer</button>
