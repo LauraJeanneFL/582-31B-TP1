@@ -44,4 +44,6 @@ L'absence de ce dossier entraînera une pénalité de 5 points sur la note final
 Remettez votre projet (dossier compressé format ZIP (Word + SQL + Dossier
 PHP)) sur Lea - Onmivox
 
-###
+### Lien GitHub
+
+<https://github.com/LauraJeanneFL/582-31B-TP1>
