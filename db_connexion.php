@@ -8,7 +8,7 @@ class Connexion {
     public $pdo;
 
     public function __construct() {
-        // TODO: à revérifer
+
          try {
             $dsn = "mysql:host=$this->host;dbname=$this->dbname;charset=$this->charset";
             $this->pdo = new PDO($dsn, $this->user, $this->pass);
