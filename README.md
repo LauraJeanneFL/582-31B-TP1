@@ -1,4 +1,4 @@
-# TP 1
+# TP 1: Laura-Jeanne Fournier Lanctôt
 
 ## Système web PHP orienté objet avec une base de données MySQL
 
@@ -44,6 +44,22 @@ L'absence de ce dossier entraînera une pénalité de 5 points sur la note final
 Remettez votre projet (dossier compressé format ZIP (Word + SQL + Dossier
 PHP)) sur Lea - Onmivox
 
-### Lien GitHub
+### Lien GitHub et Web Dev
 
 <https://github.com/LauraJeanneFL/582-31B-TP1>
+Le projet est accessible à cette adresse :
+[https://e2495693.webdev.cmaisonneuve.qc.ca](https://e2495693.webdev.cmaisonneuve.qc.ca)
+
+### Instructions d'installation
+
+• Installer Tunnelbricks pour la connexion au Collège Maisonneuve
+• Télécharger FileZilla
+• Importer ton fichier SQL :
+    - Créer une nouvelle base de données
+    - Cliquer sur l’onglet **Importer** dans phpMyAdmin.
+    - Choisir mon fichier SQL ( `db_librairie.sql`) et cliquer sur **Exécuter**.
+
+## Instructions de connexion à la base de données
+
+- Nom de la base : `e2495693_librairie`.
+- Utilisateur : `e2495693`
